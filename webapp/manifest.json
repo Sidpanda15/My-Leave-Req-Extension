@@ -1,0 +1,76 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "hcm.fab.myleaverequest.HCMFAB_LEAV_MANExtension",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"i18n": "i18n/i18n.properties",
+		"dataSources": {
+			"leaveService": {
+				"uri": "/sap/opu/odata/sap/ZH2R_CANDIDATES_SRV/",
+				"settings": {
+					"localUri": "./localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "fioriexttemplate.replaceservicecomponent",
+			"version": "1.4.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://general-leave-request",
+			"favIcon": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"dependencies": {
+			"minUI5Version": "1.44.51"
+		},
+		"extends": {
+			"component": "hcm.fab.myleaverequest",
+			"extensions": {
+				"sap.ui.viewReplacements": {
+					"hcm.fab.myleaverequest.view.Creation": {
+						"viewName": "hcm.fab.myleaverequest.HCMFAB_LEAV_MANExtension.view.CreationCustom",
+						"type": "XML"
+					}
+				},
+				"sap.ui.controllerExtensions": {
+					"hcm.fab.myleaverequest.controller.Creation": {
+						"controllerName": "hcm.fab.myleaverequest.HCMFAB_LEAV_MANExtension.controller.CreationCustom"
+					}
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "hcm.fab.myleaverequest.HCMFAB_LEAV_MANExtension.i18n.i18n"
+				}
+			}
+		}
+	}
+}

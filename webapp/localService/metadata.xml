@@ -1,0 +1,149 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="sap" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Candi" sap:content-version="1">
+				<Key><PropertyRef Name="Jointid"/><PropertyRef Name="Tradeid"/><PropertyRef Name="Listposit"/></Key><Property Name="Civilite" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Civilité" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Jointtxt" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Organe par. (court)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Info06" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Statut" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Info10" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="grade" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Civtxt" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Civilité" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Entrydt" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date d’entrée serv."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Lang" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Communication L" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Etablis" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Etablissement"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Jointid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organe paritaire (ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="fixed-values"/><Property Name="Rufnm" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Nickname" sap:sortable="false" sap:filterable="false"/><Property Name="Tradetxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Organisation synd."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tradetxtl" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Organisation syndic."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="College" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Collège" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Jointtxtl" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Organe paritaire (lo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tradeid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID org. syndicale"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="fixed-values"/><Property Name="Utorg" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Siège de travail" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Listposit" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Position liste"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Titulaire" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="titulaire" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Idf" Type="Edm.String" MaxLength="9" sap:unicode="false" sap:label="Idf" sap:sortable="false" sap:filterable="false"
+					sap:value-list="standard"/><Property Name="Tradeorder" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Ordre d’apparition"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Champsres" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Champ réservé"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Nachn" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Siegeres" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Siège réservé"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vorna" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Civ" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Civilité" sap:sortable="false" sap:filterable="false"/><Property Name="Estcateg" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Est catégoriel"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Birth" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:unicode="false" sap:label="Date de naissance"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="TradeTypeSet" Relationship="sap.Assoc_TradeType_Candi" FromRole="ToRole_Assoc_TradeType_Candi"
+					ToRole="FromRole_Assoc_TradeType_Candi"/><NavigationProperty Name="JointType" Relationship="sap.Assoc_JointType_Candi" FromRole="ToRole_Assoc_JointType_Candi"
+					ToRole="FromRole_Assoc_JointType_Candi"/><NavigationProperty Name="Elec" Relationship="sap.Assoc_ElecType_Candi" FromRole="ToRole_Assoc_ElecType_Candi"
+					ToRole="FromRole_Assoc_ElecType_Candi"/></EntityType>
+			<EntityType Name="TradeType" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Tradeid"/></Key><Property Name="Tradeid" Type="Edm.String" Nullable="false" MaxLength="8" sap:text="Tradelong" sap:unicode="false"
+					sap:label="ID org. syndicale" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tradelong" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Organisation syndic."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Candi" Relationship="sap.Assoc_TradeType_Candi" FromRole="FromRole_Assoc_TradeType_Candi"
+					ToRole="ToRole_Assoc_TradeType_Candi"/></EntityType>
+			<EntityType Name="JointType" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Jointid"/></Key><Property Name="Jointid" Type="Edm.String" Nullable="false" MaxLength="8" sap:text="Jointlong" sap:unicode="false"
+					sap:label="Organe paritaire (ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Jointshort" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Organe par. (court)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Jointlong" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Organe paritaire (lo"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="CandiSet" Relationship="sap.Assoc_JointType_Candi" FromRole="FromRole_Assoc_JointType_Candi"
+					ToRole="ToRole_Assoc_JointType_Candi"/></EntityType>
+			<EntityType Name="Elec" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Idf"/></Key><Property Name="Eligibtxt" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Eligibilité"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cpr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CPR" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Info06" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Statut" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Info10" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="grade" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cprshort" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="CPR" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Idf" Type="Edm.String" Nullable="false" MaxLength="9" sap:text="Nachn" sap:unicode="false" sap:label="Idf"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Ceppt" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CEPPT" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cepptshort" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CEPPT" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Nachn" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Cppt" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CPPT" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cpptshort" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CPPT" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Vorna" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false"
+					sap:updatable="false"/><NavigationProperty Name="CandiSet" Relationship="sap.Assoc_ElecType_Candi" FromRole="FromRole_Assoc_ElecType_Candi"
+					ToRole="ToRole_Assoc_ElecType_Candi"/></EntityType>
+			<EntityType Name="User" sap:content-version="1">
+				<Key><PropertyRef Name="Pernr"/></Key><Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Personnel No." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Update" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false"
+					sap:label="Boolean Variable (X=true, -=false, space=unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Access" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Idf" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Idf" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Idsyndic" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID org. syndicale"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Last name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Voorname" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="First name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="Assoc_TradeType_Candi" sap:content-version="1"><End Type="sap.TradeType" Multiplicity="0..1" Role="FromRole_Assoc_TradeType_Candi"/><End Type="sap.Candi" Multiplicity="*" Role="ToRole_Assoc_TradeType_Candi"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Assoc_TradeType_Candi"><PropertyRef Name="Tradeid"/></Principal>
+					<Dependent Role="ToRole_Assoc_TradeType_Candi"><PropertyRef Name="Tradeid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Assoc_JointType_Candi" sap:content-version="1"><End Type="sap.JointType" Multiplicity="0..1" Role="FromRole_Assoc_JointType_Candi"/><End Type="sap.Candi" Multiplicity="*" Role="ToRole_Assoc_JointType_Candi"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Assoc_JointType_Candi"><PropertyRef Name="Jointid"/></Principal>
+					<Dependent Role="ToRole_Assoc_JointType_Candi"><PropertyRef Name="Jointid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="Assoc_ElecType_Candi" sap:content-version="1"><End Type="sap.Elec" Multiplicity="0..1" Role="FromRole_Assoc_ElecType_Candi"/><End Type="sap.Candi" Multiplicity="*" Role="ToRole_Assoc_ElecType_Candi"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_Assoc_ElecType_Candi"><PropertyRef Name="Idf"/></Principal>
+					<Dependent Role="ToRole_Assoc_ElecType_Candi"><PropertyRef Name="Idf"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="sap_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CandiSet" EntityType="sap.Candi" sap:pageable="false" sap:content-version="1"/><EntitySet Name="TradeTypeSet" EntityType="sap.TradeType" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="JointTypeSet" EntityType="sap.JointType" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ElecSet" EntityType="sap.Elec" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false"
+				sap:addressable="false" sap:content-version="1"/><EntitySet Name="UserSet" EntityType="sap.User" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false"
+				sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="Assoc_TradeType_CandiSet" Association="sap.Assoc_TradeType_Candi" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TradeTypeSet" Role="FromRole_Assoc_TradeType_Candi"/><End EntitySet="CandiSet" Role="ToRole_Assoc_TradeType_Candi"/></AssociationSet>
+				<AssociationSet Name="Assoc_ElecType_CandiSet" Association="sap.Assoc_ElecType_Candi" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ElecSet" Role="FromRole_Assoc_ElecType_Candi"/><End EntitySet="CandiSet" Role="ToRole_Assoc_ElecType_Candi"/></AssociationSet>
+				<AssociationSet Name="Assoc_JointType_CandiSet" Association="sap.Assoc_JointType_Candi" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="JointTypeSet" Role="FromRole_Assoc_JointType_Candi"/><End EntitySet="CandiSet" Role="ToRole_Assoc_JointType_Candi"/></AssociationSet>
+			</EntityContainer><Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="sap.Candi/Tradeid">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="TradeTypeSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Tradeid"/><PropertyValue Property="ValueListProperty" String="Tradeid"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Tradeid"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Tradelong"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="sap.Candi/Jointid">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="JointTypeSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Jointid"/><PropertyValue Property="ValueListProperty" String="Jointid"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Jointshort"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Jointlong"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="sap.Candi/Idf">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record><PropertyValue Property="CollectionPath" String="ElecSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Idf"/><PropertyValue Property="ValueListProperty" String="Idf"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Nachn"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Vorna"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Eligibtxt"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Info06"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Info10"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Cprshort"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Cepptshort"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Cpptshort"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZH2R_CANDIDATES_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZH2R_CANDIDATES_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
