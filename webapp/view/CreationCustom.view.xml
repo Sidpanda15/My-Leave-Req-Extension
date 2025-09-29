@@ -93,7 +93,7 @@
 					<!-- One of Less than one Half Days leave types -->
 					<Label id="oneDayLabel" text="{i18n>radioButtonLabel}" labelFor="singleDayBtnGroup" visible="{device>/system/phone}"/>
 					<RadioButtonGroup id="singleDayBtnGroup" columns="3" select="onSingleDayRadioSelected"
-						ariaLabelledBy="singleDayLabel" width="auto">
+						ariaLabelledBy="singleDayLabel" width="auto" enabled="{=${create>/multiOrSingleDayRadioGroupIndex} === 1 ? true : false}">
 						<buttons>
 							<RadioButton id="rdBtnFullDay" text="{i18n>FullDayTxt}" class="sapUiSmallMarginEnd"
 								/>
@@ -141,13 +141,13 @@
 					<TimePicker id="startTimePick" width="100%" class="sapUiTinyMarginEnd"
 						enabled="{ formatter:'.formatter.isTimePickerEnabled', parts: [ { path: 'create>/oLeaveStartDate' }, { path: 'AbsenceTypeCode' }, { path: 'create>/inputHoursFilled' } ]}"
 						value="{ path: 'StartTime', formatter:'.formatter.formatTime'}" valueFormat="HHmmss" change="onTimeChange"
-						editable="{= ${create>/sEditMode} !== 'DELETE'}"
+						editable="{= ${create>/sEditMode} !== 'DELETE' ? ${create>/multiOrSingleDayRadioGroupIndex} === 1 ? false : true : false}"
 						displayFormat="{ path: 'create>/shortDisplayFormat', formatter:'.formatter.displayTimeShort'}" ariaLabelledBy="startTimeLabel"
 						visible="{formatter: '.formatter.isTimePickerAvailable', parts: [ 'create>/multiOrSingleDayRadioGroupIndex', 'create>/showTimePicker' ] }"/>
 					<!-- End Time -->
 					<Label id="endTimeLabel" text="{i18n>endTimePickTxt}" labelFor="endTimePick"
 						visible="{formatter: '.formatter.isTimePickerAvailable', parts: [ 'create>/multiOrSingleDayRadioGroupIndex', 'create>/showTimePicker' ] }"/>
-					<TimePicker id="endTimePick" width="100%" editable="{= ${create>/sEditMode} !== 'DELETE'}"
+					<TimePicker id="endTimePick" width="100%" editable="{= ${create>/sEditMode} !== 'DELETE' ? ${create>/multiOrSingleDayRadioGroupIndex} === 1 ? false : true : false}"
 						enabled="{ formatter:'.formatter.isTimePickerEnabled', parts: [ { path: 'create>/oLeaveStartDate' }, { path: 'AbsenceTypeCode' }, { path: 'create>/inputHoursFilled' } ]}"
 						value="{ path: 'EndTime', formatter:'.formatter.formatTime'}" valueFormat="HHmmss" change="onTimeChange" ariaLabelledBy="endTimeLabel"
 						displayFormat="{ path: 'create>/shortDisplayFormat', formatter:'.formatter.displayTimeShort'}"

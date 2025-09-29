@@ -320,6 +320,23 @@ sap.ui.define([
 		                }
 		            }
 		        };
+
+				// custom coding
+				let oSingleOrMultiDayBtnGroup = this.getView().byId("singleOrMultiDayBtnGroup");
+				let iSelectedIndex = oSingleOrMultiDayBtnGroup.getSelectedIndex();
+				let sOffTime;
+		        if (iSelectedIndex === 0) {
+		        	sOffTime = "FD"
+		        } else if (iSelectedIndex === 1)  {
+		        	sOffTime = "AM"
+		        } else if (iSelectedIndex === 2) {
+					sOffTime = "PM"
+				} 
+
+				if (sOffTime){
+					this.oODataModel.setProperty(A + "/Zhalf", sOffTime);
+				} 
+
 		        if (this.oODataModel.hasPendingChanges()) {
 		            var Q = {
 		                requestID: this.oODataModel.getProperty(A + "/RequestID"),
@@ -429,16 +446,6 @@ sap.ui.define([
 		                this._updateApprovers(this.getSelectedAbsenceTypeControl().getBindingContext().getObject());
 		                this._revalidateSaveButtonStatus();
 		            }
-		        }
-		        
-		        // custom extension
-		        let iSelectedIndex = i.getSource().getSelectedIndex();
-		        if (iSelectedIndex === 0) {
-		        	this.getView().byId("singleDayBtnGroup").setEnabled(false);
-		        } else {
-		        	this.getView().byId("singleDayBtnGroup").setEnabled(true);
-		        	this.getView().byId("startTimePick").setEnabled(false);
-		        	this.getView().byId("endTimePick").setEnabled(false);
 		        }
 		    },
 		    

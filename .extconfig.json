@@ -1,0 +1,63 @@
+{
+    "controllers": {
+        "App": "HCMFAB_LEAV_MAN%2fcontroller%2fApp.controller.js",
+        "Creation": "HCMFAB_LEAV_MAN%2fcontroller%2fCreation.controller.js",
+        "Display": "HCMFAB_LEAV_MAN%2fcontroller%2fDisplay.controller.js",
+        "Overview": "HCMFAB_LEAV_MAN%2fcontroller%2fOverview.controller.js"
+    },
+    "views": {
+        "App": "HCMFAB_LEAV_MAN%2fview%2fApp.view.xml",
+        "Creation": "HCMFAB_LEAV_MAN%2fview%2fCreation.view.xml",
+        "Display": "HCMFAB_LEAV_MAN%2fview%2fDisplay.view.xml",
+        "Overview": "HCMFAB_LEAV_MAN%2fview%2fOverview.view.xml"
+    },
+    "fragments": {
+        "AdditionalFieldCheckbox": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldCheckbox.fragment.xml",
+        "AdditionalFieldDatePicker": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldDatePicker.fragment.xml",
+        "AdditionalFieldInput": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldInput.fragment.xml",
+        "AdditionalFieldInputInteger": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldInputInteger.fragment.xml",
+        "AdditionalFieldSearchHelperInput": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldSearchHelperInput.fragment.xml",
+        "AdditionalFieldTimePicker": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fAdditionalFieldTimePicker.fragment.xml",
+        "ApproverCreateSimpleForm": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fApproverCreateSimpleForm.fragment.xml",
+        "ApproverDialog": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fApproverDialog.fragment.xml",
+        "EntitlementDetail": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fEntitlementDetail.fragment.xml",
+        "EntitlementInfoPopover": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fEntitlementInfoPopover.fragment.xml",
+        "EntitlementInfoTag": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fEntitlementInfoTag.fragment.xml",
+        "LeaveTypeDescriptionDialog": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fLeaveTypeDescriptionDialog.fragment.xml",
+        "MultiLeaveSelectDialog": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fMultiLeaveSelectDialog.fragment.xml",
+        "SearchHelperDialog": "HCMFAB_LEAV_MAN%2fview%2ffragments%2fSearchHelperDialog.fragment.xml"
+    },
+    "type": "abaprep",
+    "shouldLinkComponentToManifest": true,
+    "component": "HCMFAB_LEAV_MAN%2fComponent.js",
+    "manifest": "HCMFAB_LEAV_MAN%2fmanifest.json",
+    "versionJsonPath": "HCMFAB_LEAV_MAN%2fversion.json",
+    "minUI5Version": "1.44.51",
+    "system": {
+        "name": "HRD",
+        "description": "HRD connection",
+        "proxyUrlPrefix": "/destinations/HRD",
+        "path": "/sap/bc/adt",
+        "url": "/destinations/HRD/sap/bc/adt",
+        "wattUsage": "dev_abap",
+        "proxyType": "OnPremise",
+        "entryPath": "/sap/bc/adt",
+        "sapClient": "602",
+        "additionalData": []
+    },
+    "discoveryStatus": {
+        "csrfToken": "97zp5Q66SY9GyvTk5xbRPQ==",
+        "transports": "/destinations/HRD/sap/bc/adt/cts/transports",
+        "transportchecks": "/destinations/HRD/sap/bc/adt/cts/transportchecks",
+        "filestore_ui5_bsp": "/destinations/HRD/sap/bc/adt/filestore/ui5-bsp/objects",
+        "search": "/destinations/HRD/sap/bc/adt/repository/informationsystem/search",
+        "ato_settings": "/destinations/HRD/sap/bc/adt/ato/settings",
+        "ui5_rt_version": "/destinations/HRD/sap/bc/adt/filestore/ui5-bsp/ui5-rt-version",
+        "description": "HRD connection",
+        "proxyUrlPrefix": "/destinations/HRD"
+    },
+    "BSPName": "HCMFAB_LEAV_MAN",
+    "namespace": "hcm.fab.myleaverequest",
+    "resourceBundle": "i18n/i18n.properties",
+    "parentResourceRootUrl": "/destinations/HRD/sap/bc/ui5_ui5/sap/HCMFAB_LEAV_MAN"
+}

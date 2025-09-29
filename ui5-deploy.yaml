@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: hcm.fab.myleaverequest.hcmfab_leav_manextension
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: HRD
+          url: http://hanadevecc:9998
+          client: '602'
+        app:
+          name: ZHCMFAB_LEV_MAN
+          description: Extension of Leave Req fiori App
+          package: ZHCM_FIORI
+          transport: HRDK900741
+        exclude:
+          - /test/
