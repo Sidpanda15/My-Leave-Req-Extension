@@ -1,5 +1,5 @@
 sap.ui.define([
-	
+
 ], function () {
 	"use strict";
 	return sap.ui.controller("hcm.fab.myleaverequest.HCMFAB_LEAV_MANExtension.controller.CreationCustom", {
@@ -154,131 +154,140 @@ sap.ui.define([
 		//        this._cleanupUnsubmittedViewChanges();
 		//    },
 
-			onSingleDayRadioSelected: function (i) {
-		    	let iSelectedIndex = i.getSource().getSelectedIndex();
-		    	if (iSelectedIndex === 0) { 
-		    		this.getView().byId("hoursValue").setValue("7.60");
-		    	} else {
-		    		this.getView().byId("hoursValue").setValue("3.80");
-		    	}
-		    	
-		    },
-		   onSendRequest: function () {
-		       var p = {}, A = this.getView().getBindingContext().getPath();
-		       this._copyDateFieldsIntoModel(this.oODataModel, A);
-		       this._copyAdditionalFieldsIntoModel(this.oCreateModel.getProperty("/AdditionalFields"), this.oODataModel, A);
-		       if (!this._requiredAdditionalFieldsAreFilled()) {
-		           this.byId("createMessagesIndicator").focus();
-		           return;
-		       }
-		       if (this._checkFormFieldsForError()) {
-		           this.byId("createMessagesIndicator").focus();
-		           return;
-		       }
-		       var G = function (i, V) {
-		           var R = this.oODataModel.getProperty(i);
-		           if (V === R) {
-		               return;
-		           }
-		           if (V && V.equals && V.equals(R)) {
-		               return;
-		           }
-		           p[i] = R;
-		           this.oODataModel.setProperty(i, V);
-		       }.bind(this);
-		       if (this.oCreateModel.getProperty("/notes")) {
-		           G(A + "/Notes", this.oCreateModel.getProperty("/notes"));
-		       } else {
-		           G(A + "/Notes", this._notesBuffer);
-		       }
-		       var K = [];
-		       if (this.oUploadCollection) {
-		           K = this.oUploadCollection.getItems();
-		           if (K.length > x) {
-		               this.oErrorHandler.pushError(this.getResourceBundle().getText("txtMaxAttachmentsReached"));
-		               this.oErrorHandler.displayErrorPopup();
-		               this.oErrorHandler.setShowErrors("immediately");
-		               return;
-		           }
-		       } else if (this.oUploadSet) {
-		           K = this.oUploadSet.getItems().concat(this.oUploadSet.getIncompleteItems());
-		       }
-		       if (this.oCreateModel.getProperty("/isAttachmentMandatory") && K.length === 0) {
-		           this.oErrorHandler.pushError(this.getResourceBundle().getText("txtAttachmentsRequired"));
-		           this.oErrorHandler.displayErrorPopup();
-		           this.oErrorHandler.setShowErrors("immediately");
-		           return;
-		       }
-		       this._updateLeaveRequestWithModifiedAttachments(this.oODataModel, A);
-		       if (this.oCreateModel.getProperty("/multiOrSingleDayRadioGroupIndex") === null || this.oCreateModel.getProperty("/multiOrSingleDayRadioGroupIndex") === 0) {
-		           this.oODataModel.setProperty(A + "/PlannedWorkingHours", "0.00");
-		           this.oODataModel.setProperty(A + "/StartTime", "");
-		           this.oODataModel.setProperty(A + "/EndTime", "");
-		       }
-		       if (this.oCreateModel.getProperty("/sEditMode") === "DELETE") {
-		           this.oODataModel.setProperty(A + "/ActionID", 3);
-		       }
-		       var N = function (R) {
-		           this.oCreateModel.setProperty("/busy", false);
-		           this.oCreateModel.setProperty("/uploadPercentage", 0);
-		           Object.keys(p).forEach(function (Y) {
-		               var Z = p[Y];
-		               this.oODataModel.setProperty(Y, Z);
-		           }.bind(this));
-		           var V = this.oODataModel.getProperty(A), W = "", X = "";
-		           for (var i = 0; i < x; i++) {
-		               X = "Attachment" + (i + 1);
-		               W = A + "/" + X;
-		               if (V[X] && !this.oODataModel.getProperty(W + "/AttachmentStatus")) {
-		                   this.oODataModel.setProperty(W, {
-		                       FileName: "",
-		                       FileType: "",
-		                       FileSize: "0"
-		                   });
-		               }
-		           }
-		       };
+		onSingleDayRadioSelected: function (i) {
+			let oView = this.getView();
+			let oBundle = this.getModel("i18n").getResourceBundle();
 
-			   // custom coding
-				let oSingleOrMultiDayBtnGroup = this.getView().byId("singleDayBtnGroup");
-				let iSelectedIndex = oSingleOrMultiDayBtnGroup.getSelectedIndex();
-				let sOffTime;
-		        if (iSelectedIndex === 0) {
-		        	sOffTime = "FD"
-		        } else if (iSelectedIndex === 1)  {
-		        	sOffTime = "AM"
-		        } else if (iSelectedIndex === 2) {
-					sOffTime = "PM"
-				} 
+			let iIndex = i.getSource().getSelectedIndex();
+			let sHours = iIndex === 0 ? "7.60" : "3.80";
 
-				if (sOffTime){
-					this.oODataModel.setProperty(A + "/Customer01", sOffTime);
-				} 
+			// Safe i18n text
+			let sMessage = oBundle.getText("usedWorkingTimePlural", [
+				sHours,
+				oBundle.getText("hoursTxt")
+			]);
 
-		       if (this.oODataModel.hasPendingChanges()) {
-		           var Q = {
-		               requestID: this.oODataModel.getProperty(A + "/RequestID"),
-		               aUploadedFiles: [],
-		               leavePath: A,
-		               showSuccess: true
-		           };
-		           this.oODataModel.setProperty(A + "/IsMultiLevelApproval", this.oCreateModel.getProperty("/IsMultiLevelApproval"));
-		           this.oCreateModel.setProperty("/busy", true);
-		           this.submitLeaveRequest(Q).then(this._uploadAttachments.bind(this)).then(this._showSuccessStatusMessage.bind(this)).catch(N.bind(this));
-		       } else if (this.oODataModel.getProperty(A + "/StatusID") === "REJECTED") {
-		           this.oCreateModel.setProperty("/busy", true);
-		           this.oODataModel.update(A, this.oODataModel.getObject(A), {
-		               success: function () {
-		                   this._showSuccessStatusMessage();
-		               }.bind(this),
-		               error: function () {
-		                   N.call(this);
-		               }.bind(this)
-		           });
-		       } else {
-		           g.show(this.getResourceBundle().getText("noChangesFound"));
-		       }
-		   },
+			// Safe value setting
+			oView.byId("hoursValue")?.setValue(sHours);
+			oView.byId("daysTimeUsagetext")?.setText(sMessage);
+
+		},
+		onSendRequest: function () {
+			var p = {}, A = this.getView().getBindingContext().getPath();
+			this._copyDateFieldsIntoModel(this.oODataModel, A);
+			this._copyAdditionalFieldsIntoModel(this.oCreateModel.getProperty("/AdditionalFields"), this.oODataModel, A);
+			if (!this._requiredAdditionalFieldsAreFilled()) {
+				this.byId("createMessagesIndicator").focus();
+				return;
+			}
+			if (this._checkFormFieldsForError()) {
+				this.byId("createMessagesIndicator").focus();
+				return;
+			}
+			var G = function (i, V) {
+				var R = this.oODataModel.getProperty(i);
+				if (V === R) {
+					return;
+				}
+				if (V && V.equals && V.equals(R)) {
+					return;
+				}
+				p[i] = R;
+				this.oODataModel.setProperty(i, V);
+			}.bind(this);
+			if (this.oCreateModel.getProperty("/notes")) {
+				G(A + "/Notes", this.oCreateModel.getProperty("/notes"));
+			} else {
+				G(A + "/Notes", this._notesBuffer);
+			}
+			var K = [];
+			if (this.oUploadCollection) {
+				K = this.oUploadCollection.getItems();
+				if (K.length > x) {
+					this.oErrorHandler.pushError(this.getResourceBundle().getText("txtMaxAttachmentsReached"));
+					this.oErrorHandler.displayErrorPopup();
+					this.oErrorHandler.setShowErrors("immediately");
+					return;
+				}
+			} else if (this.oUploadSet) {
+				K = this.oUploadSet.getItems().concat(this.oUploadSet.getIncompleteItems());
+			}
+			if (this.oCreateModel.getProperty("/isAttachmentMandatory") && K.length === 0) {
+				this.oErrorHandler.pushError(this.getResourceBundle().getText("txtAttachmentsRequired"));
+				this.oErrorHandler.displayErrorPopup();
+				this.oErrorHandler.setShowErrors("immediately");
+				return;
+			}
+			this._updateLeaveRequestWithModifiedAttachments(this.oODataModel, A);
+			if (this.oCreateModel.getProperty("/multiOrSingleDayRadioGroupIndex") === null || this.oCreateModel.getProperty("/multiOrSingleDayRadioGroupIndex") === 0) {
+				this.oODataModel.setProperty(A + "/PlannedWorkingHours", "0.00");
+				this.oODataModel.setProperty(A + "/StartTime", "");
+				this.oODataModel.setProperty(A + "/EndTime", "");
+			}
+			if (this.oCreateModel.getProperty("/sEditMode") === "DELETE") {
+				this.oODataModel.setProperty(A + "/ActionID", 3);
+			}
+			var N = function (R) {
+				this.oCreateModel.setProperty("/busy", false);
+				this.oCreateModel.setProperty("/uploadPercentage", 0);
+				Object.keys(p).forEach(function (Y) {
+					var Z = p[Y];
+					this.oODataModel.setProperty(Y, Z);
+				}.bind(this));
+				var V = this.oODataModel.getProperty(A), W = "", X = "";
+				for (var i = 0; i < x; i++) {
+					X = "Attachment" + (i + 1);
+					W = A + "/" + X;
+					if (V[X] && !this.oODataModel.getProperty(W + "/AttachmentStatus")) {
+						this.oODataModel.setProperty(W, {
+							FileName: "",
+							FileType: "",
+							FileSize: "0"
+						});
+					}
+				}
+			};
+
+			// custom coding
+			let oSingleOrMultiDayBtnGroup = this.getView().byId("singleDayBtnGroup");
+			let iSelectedIndex = oSingleOrMultiDayBtnGroup.getSelectedIndex();
+			let sOffTime;
+			if (iSelectedIndex === 0) {
+				sOffTime = "FD"
+			} else if (iSelectedIndex === 1) {
+				sOffTime = "AM"
+			} else if (iSelectedIndex === 2) {
+				sOffTime = "PM"
+			}
+
+			if (sOffTime) {
+				this.oODataModel.setProperty(A + "/Customer01", sOffTime);
+			}
+
+			if (this.oODataModel.hasPendingChanges()) {
+				var Q = {
+					requestID: this.oODataModel.getProperty(A + "/RequestID"),
+					aUploadedFiles: [],
+					leavePath: A,
+					showSuccess: true
+				};
+				this.oODataModel.setProperty(A + "/IsMultiLevelApproval", this.oCreateModel.getProperty("/IsMultiLevelApproval"));
+				this.oCreateModel.setProperty("/busy", true);
+				this.submitLeaveRequest(Q).then(this._uploadAttachments.bind(this)).then(this._showSuccessStatusMessage.bind(this)).catch(N.bind(this));
+			} else if (this.oODataModel.getProperty(A + "/StatusID") === "REJECTED") {
+				this.oCreateModel.setProperty("/busy", true);
+				this.oODataModel.update(A, this.oODataModel.getObject(A), {
+					success: function () {
+						this._showSuccessStatusMessage();
+					}.bind(this),
+					error: function () {
+						N.call(this);
+					}.bind(this)
+				});
+			} else {
+				g.show(this.getResourceBundle().getText("noChangesFound"));
+			}
+		},
 		//    onCancel: function () {
 		//        this._confirmCancel();
 		//    },
